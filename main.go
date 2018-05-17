@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
@@ -9,9 +10,9 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"github.com/appleboy/gorush/config"
-	"github.com/appleboy/gorush/gorush"
-	"github.com/appleboy/gorush/rpc"
+	"github.com/ricardomaraschini/gorush/config"
+	"github.com/ricardomaraschini/gorush/gorush"
+	"github.com/ricardomaraschini/gorush/rpc"
 
 	"golang.org/x/sync/errgroup"
 )
@@ -181,6 +182,12 @@ func main() {
 			Platform: gorush.PlatFormIos,
 			Message:  message,
 			Title:    title,
+		}
+
+		// if message is a valid json, set it also at Data.
+		dt := make(map[string]interface{})
+		if err := json.Unmarshal([]byte(message), &dt); err != nil {
+			req.Data = dt
 		}
 
 		// send message to single device

@@ -6,14 +6,14 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/appleboy/gorush/config"
-	"github.com/appleboy/gorush/storage"
+	"github.com/ricardomaraschini/gorush/config"
+	"github.com/ricardomaraschini/gorush/storage"
 
 	"github.com/appleboy/com/convert"
 	"github.com/dgraph-io/badger"
 )
 
-// New func implements the storage interface for gorush (https://github.com/appleboy/gorush)
+// New func implements the storage interface for gorush (https://github.com/ricardomaraschini/gorush)
 func New(config config.ConfYaml) *Storage {
 	return &Storage{
 		config: config,

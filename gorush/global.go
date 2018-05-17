@@ -1,8 +1,8 @@
 package gorush
 
 import (
-	"github.com/appleboy/gorush/config"
-	"github.com/appleboy/gorush/storage"
+	"github.com/ricardomaraschini/gorush/config"
+	"github.com/ricardomaraschini/gorush/storage"
 
 	"github.com/appleboy/go-fcm"
 	"github.com/sideshow/apns2"
