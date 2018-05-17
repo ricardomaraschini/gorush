@@ -186,7 +186,7 @@ func main() {
 
 		// if message is a valid json, set it also at Data.
 		dt := make(map[string]interface{})
-		if err := json.Unmarshal([]byte(message), &dt); err != nil {
+		if err := json.Unmarshal([]byte(message), &dt); err == nil {
 			req.Data = dt
 		}
 
